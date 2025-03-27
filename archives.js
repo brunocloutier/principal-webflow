@@ -1,7 +1,9 @@
-
+var Webflow = Webflow || [];
+Webflow.push(function () {
+	
   // Variables
-  const archivesLightbox = document.getElementById('archives-lightbox');
-	const archivesListItems = document.querySelectorAll('.archives__list-item');
+const archivesLightbox = document.getElementById('archives-lightbox');
+const archivesListItems = document.querySelectorAll('.archives__list-item');
   
   // Bind Click Events
   archivesListItems.forEach(item => {
@@ -58,3 +60,6 @@
     });
     
   }
+
+
+});
