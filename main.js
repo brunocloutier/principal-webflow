@@ -15,7 +15,7 @@ Webflow.push(function () {
     });
   });
 
-  // Fade In Element
+  // Fade In Elements
   const elements = document.getElementsByClassName('fade-in-element');
   const delay = 100;
   const initialDelay = 200;
