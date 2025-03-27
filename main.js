@@ -1,12 +1,21 @@
-<!-- wrapper.js -->
-<script type="text/javascript">
-$(document).ready(function(){const t=document.getElementsByClassName("wrapper")[0];$(".fade-out-link").each(function(){$(this).click(function(){var e=$(this).attr("href");$(this).attr("href","#"),t.classList.add("wrapper--fade-out"),setTimeout(function(){window.location.href=e},250)})})});
-</script>
+var Webflow = Webflow || [];
+Webflow.push(function () {
 
-<!-- fade-in-element.js -->
-<script type="text/javascript">
-$(document).ready(function() {
+  // Wrapper
+  const wrapper = document.getElementsByClassName('wrapper')[0];
+    
+  $('.fade-out-link').each(function() {
+    $(this).click(function() {
+      var url = $(this).attr('href');
+      $(this).attr('href', '#');
+      wrapper.classList.add('wrapper--fade-out');
+      setTimeout(function() {
+        window.location.href = url;
+      }, 250);
+    });
+  });
 
+  // Fade In Element
   const elements = document.getElementsByClassName('fade-in-element');
   const delay = 100;
   const initialDelay = 200;
@@ -22,4 +31,3 @@ $(document).ready(function() {
   }, initialDelay);
 
 });
-</script>
