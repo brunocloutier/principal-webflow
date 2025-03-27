@@ -1,6 +1,5 @@
-<script src="https://unpkg.com/masonry-layout@4/dist/masonry.pkgd.min.js"></script>
-<script src="https://unpkg.com/imagesloaded@5/imagesloaded.pkgd.min.js"></script>
-<script type="text/javascript">
+var Webflow = Webflow || [];
+Webflow.push(function () {
 
   window.onload = function() {
 
@@ -23,4 +22,4 @@
 
   }
   
-</script>
+});
