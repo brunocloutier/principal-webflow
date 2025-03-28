@@ -1,5 +1,5 @@
 var Webflow = Webflow || [];
-Webflow.push(function () {
+Webflow.push(function () { 
 	
 	const lightbox = document.getElementById('lightbox');
 	const lightboxData = document.getElementById('lightbox-data');
