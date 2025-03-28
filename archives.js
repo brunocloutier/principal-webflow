@@ -44,8 +44,8 @@ Webflow.push(function () {
 				isNavigation: true,
 				breakpoints : {
 					600: {
-					fixedWidth : 60,
-					fixedHeight: 44,
+						fixedWidth : 60,
+						fixedHeight: 44,
 					},
 				},
 			} );
