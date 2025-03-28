@@ -1,9 +1,78 @@
 var Webflow = Webflow || [];
 Webflow.push(function () {
 	
+	const lightbox = document.getElementById('lightbox');
+	const lightboxData = document.getElementById('lightbox-data');
+	const listItems = document.querySelectorAll('.archives__list-item');
+  
+  listItems.forEach(item => {
+		item.addEventListener('click', (e) => {
+      openLightbox(e.target.getAttribute('data-slug'));
+      e.preventDefault();
+    });
+  });
+	
+  function closeLightbox() {
+  	lightbox.addClass('is-hidden');
+    lightboxData.addClass('is-hidden');
+  }
+
+	// Open Lightbox
+  function openLightbox(slug) {
+  	
+    lightbox.removeClass('is-hidden');
+		
+		lightboxData.html('');
+  	lightboxData.load('/archives-collection/' + slug + ' #data', function() {
+    
+    	lightboxData.removeClass('is-hidden');
+    
+    	jQuery('#archives-lightbox-close').bind('click', closeLightbox);
+    	
+      var main = new Splide( '#main-slider', {
+        type      : 'fade',
+        rewind    : true,
+        pagination: false,
+        arrows    : false,
+      } );
+
+      var thumbnails = new Splide( '#thumbnail-slider', {
+        fixedWidth  : 75,
+        fixedHeight : 50,
+        gap         : 5,
+        rewind      : true,
+        pagination  : false,
+        arrows			: true,
+        cover       : true,
+        isNavigation: true,
+        breakpoints : {
+          600: {
+            fixedWidth : 60,
+            fixedHeight: 44,
+          },
+        },
+      } );
+
+      main.sync( thumbnails );
+      main.mount();
+      thumbnails.mount();
+    });
+    
+  }
+
+
+
+
+
+
+
+	/*
+ var Webflow = Webflow || [];
+Webflow.push(function () {
+	
   // Variables
-const archivesLightbox = document.getElementById('archives-lightbox');
-const archivesListItems = document.querySelectorAll('.archives__list-item');
+	const archivesLightbox = document.getElementById('archives-lightbox');
+	const archivesListItems = document.querySelectorAll('.archives__list-item');
   
   // Bind Click Events
   archivesListItems.forEach(item => {
@@ -61,5 +130,8 @@ const archivesListItems = document.querySelectorAll('.archives__list-item');
     
   }
 
+});
+
+*/
 
 });
